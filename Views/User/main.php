@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <a href="logout.php" class="btn btn-primary">Đăng xuất</a>
+<a href="index.php" class="btn btn-info">Trang chủ</a>
 <div><a class="btn btn-success m-5" href="?controller=<?= $controller ?>&action=create">+ Thêm thành viên</a></div>
 <h1 align="center">Danh sách thành viên</h1>
 <table class="table table-striped">

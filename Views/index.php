@@ -28,13 +28,13 @@
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                         Trang chủ
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action">Quản lý thành viên</a>
-                    <a href="#" class="list-group-item list-group-item-action">Quản lý sản phẩm</a>
+                    <a href="?controller=user" class="list-group-item list-group-item-action">Quản lý thành viên</a>
+                    <a href="?controller=product" class="list-group-item list-group-item-action">Quản lý sản phẩm</a>
                     <a href="#" class="list-group-item list-group-item-action">Quản lý đơn hàng</a>
                 </div>
             </div>
             <div class="col-md-9">
-                <h2 align="center">Content Quản Trị</h2>
+                <h2>Giao diện Content</h2>
             </div>
         </div>
     </div>

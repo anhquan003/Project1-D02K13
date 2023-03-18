@@ -20,7 +20,13 @@ switch($controller) {
             header('location: ?controller=login&action=login');
         }
         ; break;
-    case 'product' : require_once('Product/product_controller.php'); break;
+    case 'product' : 
+        if(isset($_SESSION['user']) && isset($_SESSION['pass'])) {
+            require_once('Product/product_controller.php');
+        }else{
+            header('location: ?controller=login&action=login');
+        }
+        ; break;
 }
 
 ?>
