@@ -20,7 +20,7 @@
         <?php
         foreach($record as $item) {
         ?>
-        <form method="post" enctype="multipart/form-data" action="?controller=product&action=update" >
+        <form method="post" enctype="multipart/form-data" action="?controller=<?= $controller ?>&redirect=<?= $redirect ?>&action=update" >
             <input type="hidden" name="id" value="<?= $item['id'] ?>">
             <div>
                 <label for="name" class="form-label">Tên sản phẩm</label>

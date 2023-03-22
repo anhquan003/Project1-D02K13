@@ -11,7 +11,7 @@
 <body>
     <h1 align="center">Thêm sản phẩm</h1>
     <div class="container">
-        <form method="post" enctype="multipart/form-data" action="?controller=product&action=store" >
+        <form method="post" enctype="multipart/form-data" action="?controller=<?= $controller ?>&redirect=<?= $redirect ?>&action=store" >
             <div>
                 <label for="name" class="form-label">Tên sản phẩm</label>
                 <input type="text" class="form-control" id="name" name="name">

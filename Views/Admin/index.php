@@ -28,8 +28,8 @@
                     <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                         Trang chủ
                     </a>
-                    <a href="?controller=user" class="list-group-item list-group-item-action">Quản lý thành viên</a>
-                    <a href="?controller=product" class="list-group-item list-group-item-action">Quản lý sản phẩm</a>
+                    <a href="?controller=admin&redirect=user" class="list-group-item list-group-item-action">Quản lý thành viên</a>
+                    <a href="?controller=admin&redirect=product" class="list-group-item list-group-item-action">Quản lý sản phẩm</a>
                     <a href="#" class="list-group-item list-group-item-action">Quản lý đơn hàng</a>
                 </div>
             </div>

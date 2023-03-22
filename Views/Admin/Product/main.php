@@ -14,9 +14,10 @@
     </style>
 </head>
 <body>
+    <a href="?controller=admin" class="btn btn-info">Trang chủ</a>
     <h1 align="center">Danh sách sản phẩm</h1>
     <div class="container">
-        <a href="?controller=product&action=create" class="btn btn-success mb-3">+ Thêm sản phẩm</a>
+        <a href="?controller=<?= $controller ?>&redirect=<?= $redirect ?>&action=create" class="btn btn-success mb-3">+ Thêm sản phẩm</a>
         <table class="table text-center">
             <thead>
                 <tr>
@@ -47,8 +48,8 @@
                     }
                     ?>
                     <td><img src="images/<?= $item['image']; ?>"></td>
-                    <td><a href="?controller=product&action=edit&id=<?= $item['id']; ?>" class="btn btn-info">Sửa</a></td>
-                    <td><a onClick="confirm('Bạn có chắc chắn xóa sản phẩm không?')" href="?controller=product&action=destroy&id=<?= $item['id']; ?>" class="btn btn-danger">Xóa</a></td>
+                    <td><a href="?controller=<?= $controller ?>&redirect=<?= $redirect ?>&action=edit&id=<?= $item['id']; ?>" class="btn btn-info">Sửa</a></td>
+                    <td><a onClick="confirm('Bạn có chắc chắn xóa sản phẩm không?')" href="?controller=<?= $controller ?>&redirect=<?= $redirect ?>&action=destroy&id=<?= $item['id']; ?>" class="btn btn-danger">Xóa</a></td>
                 </tr>
                 <?php $stt++; } ?>
             </tbody>

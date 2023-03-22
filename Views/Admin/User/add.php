@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" action="?controller=<?= $controller ?>&action=store">
+    <form method="post" action="?controller=<?= $controller ?>&redirect=<?= $redirect ?>&action=store">
         <?php if(isset($errorr)) {echo $errorr;} ?>
         <h1 align="center">Thêm mới thành viên</h1>
         <div class="mb-3">

@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <?php foreach($record as $item) { ?>
-<form method="post" action="?controller=<?= $controller ?>&action=update">
+<form method="post" action="?controller=<?= $controller ?>&redirect=<?= $redirect ?>&action=update">
     <?php if(isset($errorr)) {echo $errorr;} ?>
     <h1 align="center">Sửa thành viên <?= $item['fullname'] ?></h1>
     <div class="mb-3">
