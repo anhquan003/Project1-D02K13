@@ -16,5 +16,6 @@ function index() {
 }
 switch($redirect) {
     case '': $arr = index(); break;
+    // case 'product': $arr = index(); break;
 }
 ?>

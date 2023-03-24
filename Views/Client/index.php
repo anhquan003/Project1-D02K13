@@ -6,6 +6,7 @@
 <title>Home</title>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/product.css">
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/bootstrap.js"></script>
 </head>
@@ -49,11 +50,6 @@
                             ?>
                             <li class="menu-item"><a href="#"><?= $item['name'] ?></a></li>
                             <?php } ?>
-                            <!-- <li class="menu-item"><a href="#">Samsung</a></li>
-                            <li class="menu-item"><a href="#">HTC</a></li>
-                            <li class="menu-item"><a href="#">Nokia</a></li>
-                            <li class="menu-item"><a href="#">Sony</a></li>
-                            <li class="menu-item"><a href="#">Blackberry</a></li> -->
                         </ul>
                     </div>
                 </nav>
@@ -62,125 +58,21 @@
         <div class="row">
         	<div id="main" class="col-lg-8 col-md-12 col-sm-12">
             	<!--	Slider	-->
-                
                 <!--	End Slider	-->
-                
-                <!--	Feature Product	-->
-                <div class="products">
-                    <h3>Sản phẩm nổi bật</h3>
-                    <div class="product-list row">
-                        <?php
-                        foreach($arr['featured'] as $item) {
-                        ?>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/<?= $item['image'] ?>"></a>
-                                <h4><a href="#"><?= $item['name'] ?></a></h4>
-                                <p>Giá Bán: <span><?= number_format($item['price']); ?>đ</span></p>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <!-- <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-2.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-3.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-4.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-5.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-6.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-                <!--	End Feature Product	-->
-                
-                
-                <!--	Latest Product	-->
-                <div class="products">
-                    <h3>Sản phẩm mới</h3>
-                    <div class="product-list row">
-                    <?php
-                        foreach($arr['new'] as $item) {
-                        ?>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/<?= $item['image'] ?>"></a>
-                                <h4><a href="#"><?= $item['name'] ?></a></h4>
-                                <p>Giá Bán: <span><?= number_format($item['price']); ?>đ</span></p>
-                            </div>
-                        </div>
-                        <?php } ?>
-                        <!-- <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-1.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-2.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-3.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-4.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-5.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
-                            <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-6.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-                <!--	End Latest Product	-->
-                
+                <!-- Master page layout -->
+                <?php
+                if(isset($_GET['redirect'])) {
+                    $redirect = $_GET['redirect'];
+                    switch($redirect) {
+                        case 'product': include_once('Views/Client/product.php');
+                    }
+                }else {
+                    include_once('Views/Client/dashboard.php');
+                    
+                }
+                // include_once('Views/Client/dashboard.php');
+                ?>
+                <!-- End Master page layout -->
             </div>
             
             <div id="sidebar" class="col-lg-4 col-md-12 col-sm-12">
