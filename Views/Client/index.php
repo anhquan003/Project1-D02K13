@@ -44,12 +44,16 @@
             	<nav>
                 	<div id="menu" class="collapse navbar-collapse">
                         <ul>
-                            <li class="menu-item"><a href="#">iPhone</a></li>
-                            <li class="menu-item"><a href="#">Samsung</a></li>
+                            <?php
+                            foreach($arr['category'] as $item) {
+                            ?>
+                            <li class="menu-item"><a href="#"><?= $item['name'] ?></a></li>
+                            <?php } ?>
+                            <!-- <li class="menu-item"><a href="#">Samsung</a></li>
                             <li class="menu-item"><a href="#">HTC</a></li>
                             <li class="menu-item"><a href="#">Nokia</a></li>
                             <li class="menu-item"><a href="#">Sony</a></li>
-                            <li class="menu-item"><a href="#">Blackberry</a></li>
+                            <li class="menu-item"><a href="#">Blackberry</a></li> -->
                         </ul>
                     </div>
                 </nav>
@@ -58,63 +62,25 @@
         <div class="row">
         	<div id="main" class="col-lg-8 col-md-12 col-sm-12">
             	<!--	Slider	-->
-                <div id="slide" class="carousel slide" data-ride="carousel">
-
-                  <!-- Indicators -->
-                  <ul class="carousel-indicators">
-                    <li data-target="#slide" data-slide-to="0" class="active"></li>
-                    <li data-target="#slide" data-slide-to="1"></li>
-                    <li data-target="#slide" data-slide-to="2"></li>
-                    <li data-target="#slide" data-slide-to="3"></li>
-                    <li data-target="#slide" data-slide-to="4"></li>
-                    <li data-target="#slide" data-slide-to="5"></li>
-                  </ul>
                 
-                  <!-- The slideshow -->
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="images/slide-1.png" alt="BKACAD Academy">
-                    </div>
-                    <div class="carousel-item">
-                      <img src="images/slide-2.png" alt="BKACAD Academy">
-                    </div>
-                     <div class="carousel-item">
-                      <img src="images/slide-3.png" alt="BKACAD Academy">
-                    </div>
-                     <div class="carousel-item">
-                      <img src="images/slide-4.png" alt="BKACAD Academy">
-                    </div>
-                     <div class="carousel-item">
-                      <img src="images/slide-5.png" alt="BKACAD Academy">
-                    </div>
-					<div class="carousel-item">
-                      <img src="images/slide-6.png" alt="BKACAD Academy">
-                    </div>
-                  </div>
-                
-                  <!-- Left and right controls -->
-                  <a class="carousel-control-prev" href="#slide" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                  </a>
-                  <a class="carousel-control-next" href="#slide" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                  </a>
-                
-                </div>
                 <!--	End Slider	-->
                 
                 <!--	Feature Product	-->
                 <div class="products">
                     <h3>Sản phẩm nổi bật</h3>
                     <div class="product-list row">
+                        <?php
+                        foreach($arr['featured'] as $item) {
+                        ?>
                         <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
                             <div class="product-item card text-center">
-                                <a href="#"><img src="images/product-1.png"></a>
-                                <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
-                                <p>Giá Bán: <span>32.990.000đ</span></p>
+                                <a href="#"><img src="images/<?= $item['image'] ?>"></a>
+                                <h4><a href="#"><?= $item['name'] ?></a></h4>
+                                <p>Giá Bán: <span><?= number_format($item['price']); ?>đ</span></p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
+                        <?php } ?>
+                        <!-- <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
                             <div class="product-item card text-center">
                                 <a href="#"><img src="images/product-2.png"></a>
                                 <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
@@ -148,7 +114,7 @@
                                 <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                                 <p>Giá Bán: <span>32.990.000đ</span></p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!--	End Feature Product	-->
@@ -158,7 +124,18 @@
                 <div class="products">
                     <h3>Sản phẩm mới</h3>
                     <div class="product-list row">
+                    <?php
+                        foreach($arr['new'] as $item) {
+                        ?>
                         <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
+                            <div class="product-item card text-center">
+                                <a href="#"><img src="images/<?= $item['image'] ?>"></a>
+                                <h4><a href="#"><?= $item['name'] ?></a></h4>
+                                <p>Giá Bán: <span><?= number_format($item['price']); ?>đ</span></p>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <!-- <div class="col-lg-4 col-md-6 col-sm-12 mx-product">
                             <div class="product-item card text-center">
                                 <a href="#"><img src="images/product-1.png"></a>
                                 <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
@@ -199,7 +176,7 @@
                                 <h4><a href="#">iPhone Xs Max 2 Sim - 256GB</a></h4>
                                 <p>Giá Bán: <span>32.990.000đ</span></p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!--	End Latest Product	-->
