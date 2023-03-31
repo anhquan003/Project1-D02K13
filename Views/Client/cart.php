@@ -74,10 +74,11 @@
                             <div class="cart-nav-item col-lg-2 col-md-2 col-sm-12">Tùy chọn</div>
                             <div class="cart-nav-item col-lg-3 col-md-3 col-sm-12">Giá</div>
                         </div>
-                        <form method="post">
+                        <form method="post" action="?redirect=<?= $redirect ?>&action=update">
                             <?php
                             $total_price_all = 0;
                             foreach ($arr['product'] as $item) {
+                                // echo $_SESSION["cart"][$item["id"]];
                                 $total_price = $_SESSION["cart"][$item["id"]] * $item["price"];
                                 $total_price_all += $total_price;
                             ?>
@@ -88,7 +89,7 @@
                                     </div>
 
                                     <div class="cart-quantity col-lg-2 col-md-2 col-sm-12">
-                                        <input type="number" id="quantity" name="qtt[<?php echo $item["id"]; ?>]" class="form-control form-blue quantity" value="<?php echo $_SESSION['cart'][$item['id']]; ?>" min="1" max="<?= $item['quantity'] ?>">
+                                        <input type="number" id="quantity" name="qtt[<?= $item["id"]; ?>]" class="form-control form-blue quantity" value="<?= $_SESSION['cart'][$item['id']]; ?>" min="1" max="<?= $item['quantity'] ?>">
                                     </div>
                                     <div class="cart-price col-lg-3 col-md-3 col-sm-12"><b><?= number_format($item['price']); ?>đ</b><a href="?redirect=cart&action=del&id=<?= $item['id'] ?>">Xóa</a></div>
                                 </div>
@@ -98,7 +99,7 @@
                                     <button id="update-cart" class="btn btn-success" type="submit" name="sbm">Cập nhật giỏ hàng</button>
                                 </div>
                                 <div class="cart-total col-lg-2 col-md-2 col-sm-12"><b>Tổng cộng:</b></div>
-                                <div class="cart-price col-lg-3 col-md-3 col-sm-12"><b><?= number_format($total_price); ?>đ</b></div>
+                                <div class="cart-price col-lg-3 col-md-3 col-sm-12"><b><?= number_format($total_price_all); ?>đ</b></div>
                             </div>
                         </form>
 

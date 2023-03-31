@@ -8,14 +8,12 @@ function view_cart() {
         foreach($_SESSION['cart'] as $prd_id) {
             $temp[] = $prd_id;
         }
-        $str_id = implode(', ', $temp);
-        $sql = "SELECT * FROM product WHERE id IN ($str_id)";
-        $query = mysqli_query($connect, $sql);
-        $arr['product'] = $query;
-    
     }
-    
+    $str_id = implode(', ', $temp);
+    $sql = "SELECT * FROM product WHERE id IN ($str_id)";
+    $query = mysqli_query($connect, $sql);
     include_once('Config/close_connect.php');
+    $arr['product'] = $query;
     $arr['category'] = $cate;
     return $arr;
 }
@@ -26,12 +24,11 @@ function add_cart() {
     }else {
         $_SESSION['cart'][$prd_id] = 1;
     }
-    include_once('Config/connect.php');
-    $cate = mysqli_query($connect, "SELECT * FROM category ORDER BY id ASC");
-    include_once('Config/close_connect.php');
-    $arr = array();
-    $arr['category'] = $cate;
-    return $arr;
+}
+function update_cart() {
+    foreach($_POST['qtt'] as $prd_id => $qtt) {
+        $_SESSION['cart'][$prd_id] = $qtt;
+    }
 }
 function del_cart() {
     $prd_id = $_GET["id"];
@@ -43,7 +40,8 @@ function del_cart() {
 }
 switch($action) {
     case '': $arr = view_cart(); break;
-    case 'add': $arr = add_cart(); break;
+    case 'add': add_cart(); break;
+    case 'update': update_cart(); break;
     case 'del': del_cart(); break;
 
 }
