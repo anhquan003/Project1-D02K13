@@ -1,5 +1,5 @@
 <?php
-function index() {
+function view_cart() {
     $arr = array();
     $temp = array();
     include_once('Config/connect.php');
@@ -8,12 +8,14 @@ function index() {
         foreach($_SESSION['cart'] as $prd_id) {
             $temp[] = $prd_id;
         }
+        $str_id = implode(', ', $temp);
+        $sql = "SELECT * FROM product WHERE id IN ($str_id)";
+        $query = mysqli_query($connect, $sql);
+        $arr['product'] = $query;
+    
     }
-    $str_id = implode(', ', $temp);
-    $sql = "SELECT * FROM product WHERE id IN ($str_id)";
-    $query = mysqli_query($connect, $sql);
+    
     include_once('Config/close_connect.php');
-    $arr['product'] = $query;
     $arr['category'] = $cate;
     return $arr;
 }
@@ -31,9 +33,18 @@ function add_cart() {
     $arr['category'] = $cate;
     return $arr;
 }
+function del_cart() {
+    $prd_id = $_GET["id"];
+    unset($_SESSION["cart"][$prd_id]);
+    echo count($_SESSION["cart"]);
+    if(count($_SESSION["cart"]) == 0){
+        unset($_SESSION["cart"]);
+    }
+}
 switch($action) {
-    case '': $arr = index(); break;
+    case '': $arr = view_cart(); break;
     case 'add': $arr = add_cart(); break;
+    case 'del': del_cart(); break;
 
 }
 
