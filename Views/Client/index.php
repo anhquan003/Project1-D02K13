@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/home.css">
 <link rel="stylesheet" href="css/product.css">
+<link rel="stylesheet" href="css/success.css">
+<link rel="stylesheet" href="css/cart.css">
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/bootstrap.js"></script>
 </head>
@@ -17,7 +19,7 @@
 	<div class="container">
     	<div class="row">
         	<div id="logo" class="col-lg-3 col-md-3 col-sm-12">
-            	<h1><a href="#"><img src="images/logo.png" style="width:200px;"></a></h1>
+            	<h1><a href="/d02k13"><img src="images/logo.png" style="width:200px;"></a></h1>
             </div>
             <div id="search" class="col-lg-6 col-md-6 col-sm-12">
                 <form class="form-inline">
@@ -65,6 +67,7 @@
                     $redirect = $_GET['redirect'];
                     switch($redirect) {
                         case 'product': include_once('Views/Client/product.php');
+                        case 'cart': include_once('Views/Client/cart.php');
                     }
                 }else {
                     include_once('Views/Client/dashboard.php');

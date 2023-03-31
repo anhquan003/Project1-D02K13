@@ -25,7 +25,7 @@ foreach($arr['product'] as $item) {
                 ?>
                 
             </ul>
-            <div id="add-cart"><a href="#">Mua ngay</a></div>
+            <div id="add-cart"><a href="index.php?redirect=cart&action=add&id=<?= $item['id'] ?>">Thêm vào giỏ hàng</a></div>
         </div>
     </div>
     <div id="product-body" class="row">
