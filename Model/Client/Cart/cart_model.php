@@ -1,4 +1,5 @@
 <?php
+// Hiển thị giỏ hàng theo SESSION
 function view_cart() {
     $arr = array();
     $temp = array();
@@ -17,6 +18,7 @@ function view_cart() {
     $arr['category'] = $cate;
     return $arr;
 }
+// Thêm sản phẩm vào giỏ hàng
 function add_cart() {
     $prd_id = $_GET['id'];
     if(isset($_SESSION['cart'][$prd_id])) {
@@ -25,11 +27,13 @@ function add_cart() {
         $_SESSION['cart'][$prd_id] = 1;
     }
 }
+// Cập nhật giỏ hàng
 function update_cart() {
     foreach($_POST['qtt'] as $prd_id => $qtt) {
         $_SESSION['cart'][$prd_id] = $qtt;
     }
 }
+// Xóa giỏ hàng
 function del_cart() {
     $prd_id = $_GET["id"];
     unset($_SESSION["cart"][$prd_id]);
@@ -38,6 +42,7 @@ function del_cart() {
         unset($_SESSION["cart"]);
     }
 }
+// Trả kết quả về Controller
 switch($action) {
     case '': $arr = view_cart(); break;
     case 'add': add_cart(); break;

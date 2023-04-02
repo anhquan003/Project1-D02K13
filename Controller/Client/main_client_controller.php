@@ -3,10 +3,12 @@ $redirect = $_GET['redirect'] ?? '';
 $action = $_GET['action'] ?? '';
 
 if($redirect == '') {
+    // Gọi trang chủ
     require_once('Model/Client/index_model.php');
     require_once('Views/Client/index.php');
 }else {
     switch($redirect) {
+        // Gọi các trang con
         case 'product': 
             require_once('Model/Client/Product/product_model.php');
             require_once('Views/Client/index.php');

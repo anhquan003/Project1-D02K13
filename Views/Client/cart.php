@@ -31,7 +31,29 @@
                     </form>
                 </div>
                 <div id="cart" class="col-lg-3 col-md-3 col-sm-12">
-                    <a class="mt-4 mr-2" href="#">giỏ hàng</a><span class="mt-3">8</span>
+                    <a class="mt-4 mr-2" href="?redirect=cart">giỏ hàng</a>
+                    <span class="mt-3">
+                        <?php
+                        if(isset($_SESSION["cart"])){
+        
+                            if(isset($_POST["qtt"])){
+                                $cart = $_POST["qtt"];
+                            }
+                            else{
+                                $cart = $_SESSION["cart"];
+                            }
+                            
+                            $totals = 0;
+                            foreach($cart as $prd_id=>$qtt){
+                                $totals += $qtt;
+                            }
+                            echo $totals;
+                        }
+                        else{
+                            echo 0;
+                        }
+                        ?>
+                    </span>
                 </div>
             </div>
         </div>
@@ -80,7 +102,7 @@
                             foreach ($arr['product'] as $item) {
                                 // echo $_SESSION["cart"][$item["id"]];
                                 $total_price = $_SESSION["cart"][$item["id"]] * $item["price"];
-                                $total_price_all += $total_price;
+                                $total_price_all += $total_price; // Tính tổng tiền sản phẩm trong giỏ hành
                             ?>
                                 <div class="cart-item row">
                                     <div class="cart-thumb col-lg-7 col-md-7 col-sm-12">
