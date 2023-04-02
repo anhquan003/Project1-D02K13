@@ -29,7 +29,8 @@ function add_cart() {
 }
 // Cập nhật giỏ hàng
 function update_cart() {
-    foreach($_POST['qtt'] as $prd_id => $qtt) {
+    $quantity = $_POST['qtt']; // Lấy số lượng sản phẩm được gửi từ giỏ hàng lên
+    foreach($quantity as $prd_id => $qtt) {
         $_SESSION['cart'][$prd_id] = $qtt;
     }
 }

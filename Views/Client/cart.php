@@ -99,9 +99,9 @@
                         <form method="post" action="?redirect=<?= $redirect ?>&action=update">
                             <?php
                             $total_price_all = 0;
-                            foreach ($arr['product'] as $item) {
+                            foreach ($arr['product'] as $productID => $item) {
                                 // echo $_SESSION["cart"][$item["id"]];
-                                $total_price = $_SESSION["cart"][$item["id"]] * $item["price"];
+                                $total_price = $_SESSION["cart"][$prd_id] * $item["price"];
                                 $total_price_all += $total_price; // Tính tổng tiền sản phẩm trong giỏ hành
                             ?>
                                 <div class="cart-item row">
@@ -111,7 +111,7 @@
                                     </div>
 
                                     <div class="cart-quantity col-lg-2 col-md-2 col-sm-12">
-                                        <input type="number" id="quantity" name="qtt[<?= $item["id"]; ?>]" class="form-control form-blue quantity" value="<?= $_SESSION['cart'][$item['id']]; ?>" min="1" max="<?= $item['quantity'] ?>">
+                                        <input type="number" id="quantity" name="qtt[<?= $productID ?>]" class="form-control form-blue quantity" value="<?= $_SESSION['cart'][$prd_id] ?>" min="1" max="<?= $item['quantity'] ?>">
                                     </div>
                                     <div class="cart-price col-lg-3 col-md-3 col-sm-12"><b><?= number_format($item['price']); ?>đ</b><a href="?redirect=cart&action=del&id=<?= $item['id'] ?>">Xóa</a></div>
                                 </div>
