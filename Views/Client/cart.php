@@ -34,18 +34,11 @@
                     <a class="mt-4 mr-2" href="?redirect=cart">giỏ hàng</a>
                     <span class="mt-3">
                         <?php
+                        // Hiển thị số lượng sản phẩm theo mã sản phẩm
                         if(isset($_SESSION["cart"])){
-        
-                            if(isset($_POST["qtt"])){
-                                $cart = $_POST["qtt"];
-                            }
-                            else{
-                                $cart = $_SESSION["cart"];
-                            }
-                            
                             $totals = 0;
-                            foreach($cart as $prd_id=>$qtt){
-                                $totals += $qtt;
+                            foreach($arr['product'] as $prd_id=>$qtt){
+                                $totals++;
                             }
                             echo $totals;
                         }
@@ -100,8 +93,7 @@
                             <?php
                             $total_price_all = 0;
                             foreach ($arr['product'] as $productID => $item) {
-                                // echo $_SESSION["cart"][$item["id"]];
-                                $total_price = $_SESSION["cart"][$prd_id] * $item["price"];
+                                $total_price = $item['amount'] * $item["price"];
                                 $total_price_all += $total_price; // Tính tổng tiền sản phẩm trong giỏ hành
                             ?>
                                 <div class="cart-item row">
@@ -111,9 +103,9 @@
                                     </div>
 
                                     <div class="cart-quantity col-lg-2 col-md-2 col-sm-12">
-                                        <input type="number" id="quantity" name="qtt[<?= $productID ?>]" class="form-control form-blue quantity" value="<?= $_SESSION['cart'][$prd_id] ?>" min="1" max="<?= $item['quantity'] ?>">
+                                        <input type="number" id="quantity" name="qtt[<?= $productID ?>]" class="form-control form-blue quantity" value="<?= $item['amount'] ?>" min="1" max="<?= $item['quantity'] ?>">
                                     </div>
-                                    <div class="cart-price col-lg-3 col-md-3 col-sm-12"><b><?= number_format($item['price']); ?>đ</b><a href="?redirect=cart&action=del&id=<?= $item['id'] ?>">Xóa</a></div>
+                                    <div class="cart-price col-lg-3 col-md-3 col-sm-12"><b><?= number_format($item['price']); ?>đ</b><a href="?redirect=cart&action=del&id=<?= $productID ?>">Xóa</a></div>
                                 </div>
                             <?php } ?>
                             <div class="row">

@@ -31,17 +31,9 @@
             	<a class="mt-4 mr-2" href="?redirect=cart">giỏ hàng</a><span class="mt-3">
                     <?php
                     if(isset($_SESSION["cart"])){
-        
-                        if(isset($_POST["qtt"])){
-                            $cart = $_POST["qtt"];
-                        }
-                        else{
-                            $cart = $_SESSION["cart"];
-                        }
-                        
                         $totals = 0;
-                        foreach($cart as $prd_id=>$qtt){
-                            $totals += $qtt;
+                        foreach($arr['product'] as $prd_id=>$qtt){
+                            $totals++;
                         }
                         echo $totals;
                     }
